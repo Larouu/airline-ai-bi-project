@@ -31,10 +31,7 @@ wheels/
 *~
 .DS_Store
 
-# Large Data Files (keep README references, exclude actual CSVs)
-03_Data_Raw/*.csv
-04_Data_Cleaned/*.csv
-04_Data_Cleaned/curated_dw/*.csv
+# Large Data Files
 *.xlsx
 *.xls
 
