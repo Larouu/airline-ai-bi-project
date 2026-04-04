@@ -1,0 +1,22 @@
+# Ignore large/raw/generated data in 08_CNN
+
+data/**/raw/**
+data/**/images/**
+data/**/labels/**
+data/**/train/**
+data/**/val/**
+data/**/test/**
+
+# Keep docs/placeholders
+!data/**/LABELING_README.md
+!data/**/.gitkeep
+
+# Ignore model artifacts and runs
+models/**
+runs/**
+reports/**
+
+# Keep folder placeholders
+!models/.gitkeep
+!runs/.gitkeep
+!reports/.gitkeep
