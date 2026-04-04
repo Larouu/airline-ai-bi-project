@@ -1,0 +1,8 @@
+path: c:\Users\achre\Downloads\Esprit\DL\Ailines project\08_CNN\data\cabin
+train: images/train
+val: images/valid
+test: images/test
+
+nc: 6
+names: ['buckled_seatbelt', 'closed_tray', 'closed_window', 'loose_seatbelt', 'opened_tray', 'opened_window']
+        

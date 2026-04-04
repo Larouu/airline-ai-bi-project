@@ -1,11 +1,13 @@
 # Ignore large/raw/generated data in 08_CNN
 
 data/**/raw/**
+data/**/.image_cache/**
 data/**/images/**
 data/**/labels/**
 data/**/train/**
 data/**/val/**
 data/**/test/**
+temp/**
 
 # Keep docs/placeholders
 !data/**/LABELING_README.md

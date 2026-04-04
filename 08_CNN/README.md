@@ -12,77 +12,50 @@ This folder contains a starter vision pipeline for:
 pip install -r 08_CNN/requirements.txt
 ```
 
-2. Bootstrap public starter data
+2. Extract the Roboflow datasets
 ```bash
-python 08_CNN/scripts/download_public_datasets.py --dry-run
-python 08_CNN/scripts/download_public_datasets.py
+python 08_CNN/scripts/extract_roboflow_datasets.py
 ```
 
-You can edit `08_CNN/configs/public_data_sources.json` to enable Kaggle sources by setting a valid dataset slug.
+This builds the current dataset folders under:
+- `08_CNN/data/cabin`
+- `08_CNN/data/crowd`
+- `08_CNN/data/luggage`
 
-3. Put additional media in raw folders
-- `08_CNN/data/baggage_qc/raw`
-- `08_CNN/data/crowd_analytics/raw`
-- `08_CNN/data/cabin_cleanliness/raw`
+Each dataset contains `images/`, `labels/`, `classes.txt`, and a `dataset.yaml`.
+`crowd` and `cabin` include `train`, `valid`, and `test` splits.
+`luggage` currently includes `train` and `test`; split it later when you are ready.
 
-4. Extract frames (if using videos)
+3. Train the crowd model
 ```bash
-python 08_CNN/scripts/extract_frames.py --input 08_CNN/data/crowd_analytics/raw --output 08_CNN/data/crowd_analytics/images/all --every-n 10
+python 08_CNN/scripts/train_yolo.py --data 08_CNN/data/crowd/dataset.yaml --model yolo11n.pt --epochs 30 --imgsz 640 --project 08_CNN/runs --name crowd_yolo
 ```
 
-5. Split dataset
+4. Train the baggage model after you split luggage later
 ```bash
-python 08_CNN/scripts/split_dataset.py --task detection --images-dir 08_CNN/data/crowd_analytics/images/all --labels-dir 08_CNN/data/crowd_analytics/labels/all --output-root 08_CNN/data/crowd_analytics
+python 08_CNN/scripts/train_yolo.py --data 08_CNN/configs/yolo_baggage.yaml --model yolo11n.pt --epochs 30 --imgsz 640 --project 08_CNN/runs --name baggage_yolo
 ```
 
-Alternative for crowd bootstrap from COCO128 (person-only):
-```bash
-python 08_CNN/scripts/prepare_crowd_person_dataset.py --images-dir 08_CNN/data/crowd_analytics/raw/coco128/images/train2017 --labels-dir 08_CNN/data/crowd_analytics/raw/coco128/labels/train2017 --output-root 08_CNN/data/crowd_analytics
-```
-
-6. Train YOLO
-```bash
-python 08_CNN/scripts/train_yolo.py --data 08_CNN/configs/yolo_crowd.yaml --model yolo11n.pt --epochs 30 --imgsz 640 --project 08_CNN/runs --name crowd_yolo
-```
-
-7. Train cabin cleanliness CNN
+5. Train the cabin cleanliness CNN only when you have Clean / Needs_Attention / Dirty folders
 ```bash
 python 08_CNN/scripts/train_cabin_cleanliness.py --data-root 08_CNN/data/cabin_cleanliness --epochs 15 --img-size 224 --batch-size 16 --output-dir 08_CNN/models
 ```
 
-8. Generate incident report from detections
+6. Generate incident report from detections
 ```bash
 python 08_CNN/scripts/generate_incident_report.py --detections-csv 08_CNN/reports/baggage_detections.csv --output 08_CNN/reports/incident_report.csv
 ```
 
 ## Notes
-- For empty folders in git, add a `.gitkeep` file if needed.
 - YOLO labels must follow YOLO txt format: `class x_center y_center width height` normalized in [0,1].
+- The current Roboflow cabin export is detection-style, not a ready-made Clean / Needs_Attention / Dirty CNN dataset.
 
 ## Start the Other Two Tasks
 
 ### Baggage Handling QC
-1. Put images in `08_CNN/data/baggage_qc/images/all`
-2. Label YOLO txt files in `08_CNN/data/baggage_qc/labels/all`
-3. Build split:
-```bash
-python 08_CNN/scripts/prepare_baggage_dataset.py
-```
-4. Train:
-```bash
-python 08_CNN/scripts/train_yolo.py --data 08_CNN/configs/yolo_baggage.yaml --model yolo11n.pt --epochs 30 --imgsz 640 --project 08_CNN/runs --name baggage_yolo
-```
+1. Split luggage into train / valid / test when you are ready.
+2. Train the YOLO model with `08_CNN/configs/yolo_baggage.yaml`.
 
 ### Cabin Cleanliness Detection
-1. Put class folders in `08_CNN/data/cabin_cleanliness/raw` with names:
-	- `Clean`
-	- `Needs_Attention`
-	- `Dirty`
-2. Build split:
-```bash
-python 08_CNN/scripts/prepare_cabin_dataset.py
-```
-3. Train:
-```bash
-python 08_CNN/scripts/train_cabin_cleanliness.py --data-root 08_CNN/data/cabin_cleanliness --epochs 15 --img-size 224 --batch-size 16 --output-dir 08_CNN/models
-```
+1. Collect images in `08_CNN/data/cabin_cleanliness/raw/Clean`, `Needs_Attention`, and `Dirty`.
+2. Train the CNN once the class-folder structure is in place.
