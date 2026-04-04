@@ -11,14 +11,13 @@ import json
 from datetime import datetime
 
 # Configuration
-BASE_PATH = Path(r"c:\Users\achre\Downloads\Esprit\DL\Ailines project")
-RAW_DATA_PATH = BASE_PATH
-CURATED_PATH = BASE_PATH / "curated_dw"
-STAGING_PATH = BASE_PATH / "staging"
+# Resolve project root from script location to keep the pipeline portable.
+BASE_PATH = Path(__file__).resolve().parents[1]
+RAW_DATA_PATH = BASE_PATH / "03_Data_Raw"
+CURATED_PATH = BASE_PATH / "04_Data_Cleaned" / "curated_dw"
 
-# Create directories
-CURATED_PATH.mkdir(exist_ok=True)
-STAGING_PATH.mkdir(exist_ok=True)
+# Create output directory
+CURATED_PATH.mkdir(parents=True, exist_ok=True)
 
 # Logging
 audit_log = []
@@ -298,7 +297,7 @@ log_msg("SQL_TEMPLATES", "Exported dw_sql_templates.json")
 # ============================================================================
 print("\n[STEP 11] Saving audit log...")
 
-with open(CURATED_PATH / "data_cleaning_audit.txt", 'w') as f:
+with open(CURATED_PATH / "data_cleaning_audit.txt", 'w', encoding='utf-8') as f:
     f.write("AIRLINE DATA WAREHOUSE PREPARATION AUDIT\n")
     f.write(f"Executed: {datetime.now().isoformat()}\n")
     f.write("="*80 + "\n\n")

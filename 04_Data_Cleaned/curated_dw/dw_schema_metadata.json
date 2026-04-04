@@ -1,7 +1,7 @@
 {
   "schema_name": "airline_dw",
   "version": "1.0",
-  "created": "2026-04-04T12:16:15.440722",
+  "created": "2026-04-04T12:46:12.110938",
   "dimensions": {
     "dim_customer": {
       "primary_key": "customer_sk",
