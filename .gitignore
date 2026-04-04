@@ -52,6 +52,9 @@ logs/
 *.temp
 *.bak
 
+# Local model weights
+yolo11n.pt
+
 # OS
 Thumbs.db
 .DS_Store
