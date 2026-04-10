@@ -1,0 +1,138 @@
+Create a complete Jupyter Notebook (.ipynb) for a Machine Learning project using a dataset named "fact_satisfaction_cleaned".
+
+The notebook must be clean, professional, and suitable for a data science portfolio, with clear markdown explanations.
+
+========================
+📊 DATASET CONTEXT
+========================
+The dataset contains airline passenger information with columns such as:
+- id
+- gender
+- customer_type
+- age
+- class
+- flight_distance
+- departure_delay
+- arrival_delay
+- satisfaction (target)
+
+⚠️ IMPORTANT:
+The dataset may contain MANY MORE columns than listed above.
+You MUST:
+- Automatically detect all columns
+- Use ALL relevant features for modeling
+- Do NOT restrict the model to only the listed columns
+- Perform proper feature selection if necessary
+
+========================
+🎯 OBJECTIVES
+========================
+
+1. Customer Satisfaction Prediction (MAIN TASK)
+- Predict satisfaction (multi-class or binary depending on data)
+- Use ALL relevant features in the dataset
+- Models:
+  - Logistic Regression (baseline)
+  - Random Forest
+  - XGBoost or LightGBM
+
+2. Feature Importance / Explainability
+- Show feature importance from models
+- Use SHAP for deeper explainability
+- Identify the most impactful features across ALL columns
+
+3. Delay Impact Modeling
+- Specifically analyze:
+  - departure_delay
+  - arrival_delay
+- But keep them as part of the full feature set
+
+4. Customer Segmentation (Clustering)
+- Use multiple features (not limited to predefined ones)
+- Apply KMeans clustering
+- Interpret clusters
+
+5. Churn Proxy
+- Create a churn-like label using:
+  - dissatisfaction
+  - delay-related features
+
+========================
+⚙️ TECHNICAL REQUIREMENTS
+========================
+
+- Use Python
+- Libraries:
+  - pandas, numpy
+  - matplotlib, seaborn
+  - scikit-learn
+  - xgboost or lightgbm
+  - shap
+
+========================
+🧱 PIPELINE STRUCTURE
+========================
+
+1. Data Loading
+- Load CSV: "fact_satisfaction_cleaned.csv"
+
+2. Exploratory Data Analysis (EDA)
+- Detect all columns dynamically
+- Identify numerical vs categorical columns
+- Handle missing values
+- Plot distributions and correlations
+
+3. Data Preprocessing
+- Automatically encode categorical variables
+- Scale numerical features if needed
+- Drop irrelevant columns (e.g., IDs)
+
+4. Feature Engineering
+- total_delay = departure_delay + arrival_delay
+- delay_flag
+- Additional engineered features if useful
+
+5. Feature Selection (IMPORTANT)
+- Use:
+  - Correlation analysis
+  - Feature importance
+  - Or model-based selection
+- Keep the most relevant features
+
+6. Model Training
+- Train:
+  - Logistic Regression
+  - Random Forest
+  - XGBoost
+- Use ALL selected features
+
+7. Evaluation
+- Accuracy, Precision, Recall, F1-score
+- ROC-AUC (if applicable)
+- Confusion Matrix
+
+8. Explainability
+- Feature importance plots
+- SHAP summary plot
+
+9. Clustering
+- Apply KMeans on selected features
+- Use Elbow method
+- Visualize clusters
+
+10. Business Insights
+- Highlight key drivers of satisfaction
+- Identify most impactful features (not just delays)
+- Provide actionable insights
+
+========================
+📈 OUTPUT
+========================
+
+- Fully executable notebook
+- Clean structure
+- Uses ALL relevant dataset columns intelligently
+- Professional visualizations
+- Strong business insights
+
+Ensure the notebook adapts dynamically to the dataset structure and does not rely on hardcoded column assumptions.
