@@ -1,7 +1,0 @@
-path: 08_CNN\data\luggage
-train: images/train
-val: images/valid
-test: images/test
-
-nc: 57
-names: ['0', '1', '2', '3', 'airplane', 'backpack', 'banana', 'bench', 'bicycle', 'bin', 'bird', 'boat', 'book', 'bottle', 'bowl', 'box', 'bus', 'cake', 'car', 'carrot', 'cell phone', 'chair', 'clock', 'couch', 'cow', 'cup', 'dining table', 'dog', 'donut', 'fire hydrant', 'fork', 'frisbee', 'gas', 'handbag', 'keyboard', 'knife', 'laptop', 'luggege', 'motorcycle', 'mouse', 'parking meter', 'person', 'plastick_bag', 'potted plant', 'sink', 'skateboard', 'sports ball', 'stop sign', 'suitcase', 'teddy bear', 'tie', 'traffic light', 'train', 'truck', 'tv', 'umbrella', 'vase']

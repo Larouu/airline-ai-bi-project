@@ -1,12 +1,11 @@
-now we have pics inside data folder you will have cabin, crowd, luggage 
-in each folder we have images and labels and classes.txt
-in crowd and cabin and luggage we have images train and valid and test 
+now we have pics inside data folder you will have cabin_cleanliness (clean, dirty, need attention), crowd (low or high), luggage (good or damaged) 
+in each folder we have images inside raw you can divide them on train and test
 
 what we want to do 
 now you can start cnn 
-Cabin Cleanliness Detection we can refer to data/cabin folders i hope it helps
+Cabin Cleanliness Detection
 CNN model to classify cabin photos (Clean / Needs Attention / Dirty). Automate pre-flight inspection scoring fed into satisfaction pipeline. SDG 12 alignment.
-Airport Crowd Analytics we can refer to data/crowd folders i hope it helps
+Airport Crowd Analytics
 Object detection (YOLO) on CCTV feed images to count passengers and estimate queue length at boarding gates. Output feeds smart gate allocation (SDG 9).
-Baggage Handling QC we can refer to data/luggage folders i hope it helps
+Baggage Handling QC
 Vision model to detect mishandled or damaged baggage at conveyor, automatically generating incident reports and improving SDG 12 responsible operations.

@@ -1,8 +1,0 @@
-path: c:\Users\achre\Downloads\Esprit\DL\Ailines project\08_CNN\data\crowd
-train: images/train
-val: images/valid
-test: images/test
-
-nc: 1
-names: ['people']
-        

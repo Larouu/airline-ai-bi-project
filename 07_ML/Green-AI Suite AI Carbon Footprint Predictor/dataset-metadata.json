@@ -1,0 +1,40 @@
+{
+  "title": "Green-AI Suite: AI Carbon Footprint Dataset",
+  "id": "letchupkt/green-ai-carbon-footprint",
+  "licenses": [
+    {
+      "name": "MIT"
+    }
+  ],
+  "keywords": [
+    "machine learning",
+    "carbon footprint",
+    "sustainability",
+    "green ai",
+    "environmental impact",
+    "deep learning",
+    "climate change",
+    "energy efficiency",
+    "ensemble methods",
+    "regression",
+    "random forest",
+    "gradient boosting",
+    "xgboost"
+  ],
+  "subtitle": "Predict carbon emissions for AI model training with 85-95% accuracy using ensemble ML models",
+  "description": "A comprehensive dataset for predicting carbon footprint, training time, and performance metrics of AI models. Includes 10,000+ synthetic records based on real-world benchmarks from GPT-3, BERT, ResNet, and other published AI training data. Features ensemble ML models (Random Forest, Gradient Boosting, XGBoost) achieving 85-95% accuracy.",
+  "resources": [
+    {
+      "path": "data.csv",
+      "description": "Main training dataset with AI model configurations and carbon emissions data"
+    },
+    {
+      "path": "kaggle-notebook.ipynb",
+      "description": "Complete ML pipeline with ensemble models and visualizations"
+    },
+    {
+      "path": "requirements.txt",
+      "description": "Python package dependencies"
+    }
+  ]
+}
