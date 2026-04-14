@@ -10,6 +10,8 @@ import random
 from pathlib import Path
 from collections import defaultdict
 
+random.seed(42)
+
 def split_dataset(raw_dir, output_base_dir, class_names, split_ratio=(0.7, 0.15, 0.15)):
     """
     Split images from raw folder into train/val/test subfolders per class.
@@ -27,9 +29,11 @@ def split_dataset(raw_dir, output_base_dir, class_names, split_ratio=(0.7, 0.15,
     splits = ["train", "val", "test"]
     split_ratios = [train_ratio, val_ratio, test_ratio]
     
-    # Create output directories
+    # Rebuild split directories so old classes do not remain behind.
     for split in splits:
         split_dir = os.path.join(output_base_dir, split)
+        if os.path.exists(split_dir):
+            shutil.rmtree(split_dir)
         for class_name in class_names:
             os.makedirs(os.path.join(split_dir, class_name), exist_ok=True)
     
@@ -95,7 +99,7 @@ def main():
     print("\n📁 Cabin Cleanliness:")
     cabin_raw = os.path.join(dl_root, "08_CNN/data/cabin_cleanliness/raw")
     cabin_output = os.path.join(dl_root, "08_CNN/data/cabin_cleanliness")
-    cabin_classes = ["Clean", "Dirty", "Needs_Attention"]
+    cabin_classes = ["Clean", "Dirty"]
     split_dataset(cabin_raw, cabin_output, cabin_classes)
     
     # Crowd Analytics
