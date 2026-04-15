@@ -1,0 +1,91 @@
+You are a senior data scientist and Python expert.
+
+I have a dataset named "airline_route_profitability.csv".
+
+Your task is to create a COMPLETE Jupyter Notebook (.ipynb) file content that implements an end-to-end machine learning project in C:\Users\achre\Downloads\Esprit\DL\Ailines project\07_ML\Airline Route Profitability & Cost Analysis
+
+IMPORTANT OUTPUT REQUIREMENTS:
+- Output must be a valid Jupyter Notebook JSON (.ipynb format)
+- Include properly structured cells:
+  - Markdown cells (for explanations)
+  - Code cells (for implementation)
+- The notebook should be clean, well-structured, and ready to run
+
+PROJECT REQUIREMENTS:
+
+1. Title Section (Markdown)
+- Project title
+- Objective
+- Dataset description
+
+2. Imports (Code)
+- pandas, numpy, matplotlib, seaborn
+- scikit-learn models and metrics
+
+3. Data Loading (Code)
+- Load "airline_route_profitability.csv"
+- Display head(), shape, and info()
+
+4. Data Understanding (Markdown + Code)
+- Summary statistics
+- Missing values
+- Data types
+
+5. Data Preprocessing (Code + Markdown)
+- Handle missing values
+- Encode categorical variables
+- Feature scaling (if needed)
+- Explain each step in markdown
+
+6. Feature Engineering (Code + Markdown)
+Create new features:
+- Revenue_per_Passenger
+- Cost_per_Hour
+- Profit_per_Seat
+- Time-based features if applicable
+
+7. Exploratory Data Analysis (EDA)
+- Correlation heatmap
+- Distribution plots
+- Key visualizations
+- Insights written in markdown
+
+8. Model Building
+
+A. Regression Model
+- Predict Profit
+- Use Linear Regression and Random Forest
+
+B. Classification Model
+- Create target: Profitable (1 if Profit > 0)
+- Train a classification model
+
+9. Model Evaluation
+- Regression: RMSE, MAE, R²
+- Classification: Accuracy, Precision, Recall, F1-score
+- Show results clearly
+
+10. Feature Importance
+- Plot and explain most important features
+
+11. What-if Simulator (Code)
+- Create a function:
+  input: passengers, cost, aircraft
+  output: predicted profit
+
+12. Conclusion (Markdown)
+- Key insights
+- Business recommendations
+
+CODING RULES:
+- Write clean, modular Python code
+- Add comments in code cells
+- Use functions where appropriate
+- Ensure notebook runs top-to-bottom without errors
+
+OPTIONAL:
+- Add a section explaining how to scale this with PySpark
+
+FINAL OUTPUT:
+Return ONLY the raw .ipynb JSON content.
+Do NOT add explanations outside the notebook.
