@@ -1,9 +1,0 @@
-path: data/baggage_qc
-train: images/train
-val: images/val
-test: images/test
-
-names:
-  0: intact_bag
-  1: damaged_bag
-  2: mishandled_bag
