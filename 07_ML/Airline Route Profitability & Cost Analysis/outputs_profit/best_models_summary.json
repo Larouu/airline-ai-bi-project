@@ -1,11 +1,11 @@
 {
   "best_regression_model": {
-    "Model": "XGBoost",
-    "CV R\u00b2 Mean": 0.6758194233088964,
-    "CV R\u00b2 Std": 0.01696132401034155,
-    "Test R\u00b2": 0.6963288452074499,
-    "RMSE": 21.21413761348436,
-    "MAE": 16.057206935750784
+    "Model": "LightGBM",
+    "CV R\u00b2 Mean": 0.7033851429249209,
+    "CV R\u00b2 Std": 0.018091192615026837,
+    "Test R\u00b2": 0.682475193516985,
+    "RMSE": 21.692641611980598,
+    "MAE": 16.108771597886317
   },
   "best_classification_model": {
     "Model": "Gradient Boosting",
@@ -16,15 +16,15 @@
     "F1": 0.8675588371019843
   },
   "top_shap_features": {
-    "Destination": 1.043747840698631,
-    "Passengers": 0.9214999079650698,
-    "Flight_Hours": 0.9080321585200368,
-    "Route_Category": 0.26124673885063027,
-    "Aircraft_Capacity": 0.08628177509250648,
-    "Demand_Level": 0.05197680651617358,
-    "Season": 0.045243996455226504,
-    "Month": 0.009270716330594822,
-    "Load_Factor": 0.005976107151828706,
-    "Aircraft_Type": 0.0009160264546507901
+    "Route_Category": 20.39173698190447,
+    "Flight_Hours": 9.686978482374656,
+    "Load_Factor": 5.402728014509392,
+    "Destination": 4.714485582233317,
+    "Season": 3.5914235973727062,
+    "Passengers": 2.1586445005582195,
+    "Month": 1.0565528057245528,
+    "Demand_Level": 0.9153214071349437,
+    "Aircraft_Capacity": 0.5187929363553937,
+    "Aircraft_Type": 0.27477323597060943
   }
 }
