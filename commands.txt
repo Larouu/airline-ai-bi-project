@@ -1,0 +1,92 @@
+# Create and activate a virtual environment
+cd 11_WebApp\backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1   # Windows PowerShell
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Windows only — if the activation script is blocked, run first:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+
+# still inside 11_WebApp/backend, venv active
+uvicorn app.main:app --reload --port 8000
+
+# Front
+cd 11_WebApp\frontend
+npm install
+
+npm run dev
+
+
+# NLP
+.\.venv\Scripts\Activate.ps1
+
+# If PowerShell blocks scripts on Windows, run this first:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+
+pip install -r 10_NLP/app/requirements.txt
+
+python -c "import nltk; nltk.download('vader_lexicon'); nltk.download('stopwords')"
+
+python -m spacy download en_core_web_sm
+
+6. Run the NLP pipeline notebook (skip if outputs already exist)
+
+terminal 1 :
+uvicorn 10_NLP.app.api:app --reload --reload-dir 10_NLP/app --port 8000
+
+
+terminal 2 :
+cd 10_NLP/web
+npm install        # first time only
+npm run dev
+
+
+
+
+Prompt 1
+to run the front which exits in C:\Users\achre\Downloads\Esprit\DL\SkyInsight\11_WebApp we need to run these commands 
+
+# Create and activate a virtual environment
+cd 11_WebApp\backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1   # Windows PowerShell
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Windows only — if the activation script is blocked, run first:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+
+# still inside 11_WebApp/backend, venv active
+uvicorn app.main:app --reload --port 8000
+
+# Front
+cd 11_WebApp\frontend
+npm install
+
+npm run dev
+
+
+
+Prompt 2
+to execute the nlp you need to run these commands 
+pip install -r 10_NLP/app/requirements.txt
+
+python -c "import nltk; nltk.download('vader_lexicon'); nltk.download('stopwords')"
+
+python -m spacy download en_core_web_sm
+
+6. Run the NLP pipeline notebook (skip if outputs already exist)
+
+terminal 1 :
+uvicorn 10_NLP.app.api:app --reload --reload-dir 10_NLP/app --port 8000
+
+
+terminal 2 :
+cd 10_NLP/web
+npm install        # first time only
+npm run dev
+
+inside C:\Users\achre\Downloads\Esprit\DL\SkyInsight\10_NLPdo one by one
